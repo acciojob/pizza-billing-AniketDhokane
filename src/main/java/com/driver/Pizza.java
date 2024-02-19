@@ -11,9 +11,9 @@ public class Pizza {
     public int extraCheese=0;
     public int ToppingPrice=0;
 
-    public boolean toppingFlag=false;
-    public boolean cheeseFlag=false;
-   public boolean flag=false;
+    public boolean toppingFlag=true;
+    public boolean cheeseFlag=true;
+   public boolean flag=true;
 
 
     public  int paperBagPrice=0;
@@ -24,12 +24,12 @@ public class Pizza {
         this.baseVegPrice=300;
         this.ToppingPrice=70;
         price=price+baseVegPrice;
-            bill+="Base Price Of The Pizza:"+ baseVegPrice+"\n";
+            bill+="Base Price Of The Pizza:" + baseVegPrice+"\n";
         }else {
         this.baseNonpPrice=400;
         this.ToppingPrice=120;
         price+=baseNonpPrice;
-            bill+="Base Price Of The Pizza:"+ baseNonpPrice+"\n";
+            bill+="Base Price Of The Pizza:" + baseNonpPrice+"\n";
         }
         this.extraCheese=80;
 
@@ -42,16 +42,24 @@ public class Pizza {
 
     public void addExtraCheese(){
         // your code goes here
-        price+=this.extraCheese;
-        cheeseFlag=true;
+        if(cheeseFlag) {
+            price += this.extraCheese;
+            cheeseFlag=false;
+        }
+
+        //cheeseFlag=true;
 
 
     }
 
     public void addExtraToppings(){
         // your code goes here
-        price+=this.ToppingPrice;
-        toppingFlag=true;
+        if(toppingFlag) {
+            price += this.ToppingPrice;
+            toppingFlag=false;
+        }
+
+
 
 
     }
@@ -59,25 +67,25 @@ public class Pizza {
     public void addTakeaway(){
         // your code goes here
         this.paperBagPrice = 20;
+        if(flag){
         price += this.paperBagPrice;
-        flag=true;
+            flag=false;
+        }
 
     }
 
     public String getBill(){
         // your code goes here
-        if(cheeseFlag){
-        bill+="Extra Cheese Added:"+ extraCheese+"\n";
-        }
-        if (toppingFlag){
-        bill+="Extra Toppings Added:"+ ToppingPrice+"\n";
 
-        }
-        if(flag){
-        bill += "Paperbag Added:"+ paperBagPrice +"\n";
+        bill+="Extra Cheese Added:" + extraCheese+"\n";
 
-        }
-        bill+="Total Price:"+ price+"\n";
+
+        bill+="Extra Toppings Added:" + ToppingPrice+"\n";
+
+
+        bill += "Paperbag Added:" + paperBagPrice +"\n";
+
+        bill+="Total Price:" + price+"\n";
 
         return this.bill;
     }
