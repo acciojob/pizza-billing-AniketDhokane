@@ -22,12 +22,12 @@ public class Pizza {
         this.baseVegPrice=300;
         this.ToppingPrice=70;
         price+=baseVegPrice;
-            bill+="Base Price Of The Pizza: " + baseVegPrice+"\n";
+            bill+="Base Price Of The Pizza:"+baseVegPrice+"\n";
         }else {
         this.baseNonpPrice=400;
         this.ToppingPrice=120;
         price+=baseNonpPrice;
-            bill+="Base Price Of The Pizza: " + baseNonpPrice+"\n";
+            bill+="Base Price Of The Pizza:"+baseNonpPrice+"\n";
         }
         this.extraCheese=80;
 
@@ -67,7 +67,7 @@ public class Pizza {
         bill+="Extra Cheese Added:"+extraCheese+"\n";
         bill+="Extra Toppings Added:"+ToppingPrice+"\n";
         if(flag){
-        bill += "Paperbag Added:" + paperBagPrice + "\n";
+        bill += "Paperbag Added:" +paperBagPrice + "\n";
         flag=false;
         }
         bill+="Total Price:"+price+"\n";
