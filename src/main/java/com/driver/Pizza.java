@@ -4,13 +4,15 @@ public class Pizza {
 
     private int price;
     private Boolean isVeg;
-    private String bill;
+    private String bill="";
 
     public int baseVegPrice=0;
     public int baseNonpPrice=0;
     public int extraCheese=0;
-    public int vegToppingPrice=0;
-    public int nonToppingPrice=0;
+    public int ToppingPrice=0;
+
+   public boolean flag=true;
+
 
     public  int paperBagPrice=0;
     public Pizza(Boolean isVeg){
@@ -18,14 +20,17 @@ public class Pizza {
         // your code goes here
         if(isVeg){
         this.baseVegPrice=300;
-        this.vegToppingPrice=70;
+        this.ToppingPrice=70;
         price+=baseVegPrice;
+            bill+="Base Price Of The Pizza: " + baseVegPrice+"\n";
         }else {
         this.baseNonpPrice=400;
-        this.nonToppingPrice=120;
+        this.ToppingPrice=120;
         price+=baseNonpPrice;
+            bill+="Base Price Of The Pizza: " + baseNonpPrice+"\n";
         }
         this.extraCheese=80;
+
 
     }
 
@@ -35,36 +40,36 @@ public class Pizza {
 
     public void addExtraCheese(){
         // your code goes here
-        price+=extraCheese;
+        price+=this.extraCheese;
+
 
     }
 
     public void addExtraToppings(){
         // your code goes here
-        if(isVeg){
-            price+=vegToppingPrice;
-        }
-        else {
-            price+=nonToppingPrice;
-        }
+
+        price+=this.ToppingPrice;
+
+
+
     }
 
     public void addTakeaway(){
         // your code goes here
-        paperBagPrice=20;
-        price+=paperBagPrice;
+        paperBagPrice = 20;
+        if(flag) {
 
+            price += this.paperBagPrice;
+            bill += "Paperbag Added:" + paperBagPrice + "\n";
+        }
+        flag=false;
     }
 
     public String getBill(){
         // your code goes here
-        if(isVeg) {
-            bill = "Base Price Of The Pizza: " + baseVegPrice+"\n"+"Extra Cheese Added:"+extraCheese+"\n"+"Extra Toppings Added:"+vegToppingPrice+"\n"+"Paperbag Added:"+ paperBagPrice+"\n"+"Total Price:"+price;
-        }
-        else {
-            bill = "Base Price Of The Pizza: " + baseNonpPrice+"\n"+"Extra Cheese Added:"+extraCheese+"\n"+"Extra Toppings Added:"+nonToppingPrice+"\n"+"Paperbag Added:"+ paperBagPrice+"\n"+"Total Price:"+price;
-
-        }
+        bill+="Extra Cheese Added:"+extraCheese+"\n";
+        bill+="Extra Toppings Added:"+ToppingPrice+"\n";
+        bill+="Total Price:"+price+"\n";
         return this.bill;
     }
 }
