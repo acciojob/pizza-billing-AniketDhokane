@@ -11,7 +11,6 @@ public class DeluxePizza extends Pizza {
 
         else this.ToppingPrice=120;
 
-        addExtraCheese();
-        addExtraToppings();
+       
     }
 }
