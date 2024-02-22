@@ -15,6 +15,8 @@ public class Pizza {
     public boolean cheeseFlag=true;
    public boolean flag=true;
 
+   public  boolean billFlag=true;
+
 
 
 
@@ -90,7 +92,10 @@ public class Pizza {
             bill += "Paperbag Added: " + paperBagPrice + "\n";
         }
 
-        bill+="Total Price: "+price+"\n";
+        if(billFlag) {
+            bill += "Total Price: " + price + "\n";
+            billFlag=false;
+        }
 
         return this.bill;
     }
