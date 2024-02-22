@@ -15,7 +15,7 @@ public class Pizza {
     public boolean cheeseFlag=true;
    public boolean flag=true;
 
-   public static int takeAway=0;
+
 
 
     public  int paperBagPrice=0;
@@ -48,7 +48,7 @@ public class Pizza {
             price += this.extraCheese;
             cheeseFlag=false;
         }
-        takeAway++;
+
 
 
 
@@ -69,8 +69,9 @@ public class Pizza {
 
     public void addTakeaway(){
         // your code goes here
-        this.paperBagPrice = 20;
+
         if(flag){
+            this.paperBagPrice = 20;
         price += this.paperBagPrice;
             flag=false;
         }
@@ -79,14 +80,15 @@ public class Pizza {
 
     public String getBill(){
         // your code goes here
-
+        if(!cheeseFlag)
         bill+="Extra Cheese Added: "+extraCheese+"\n";
 
-
+        if (!toppingFlag)
         bill+="Extra Toppings Added: "+ToppingPrice+"\n";
 
-        if(takeAway==0)
-        bill += "Paperbag Added: "+paperBagPrice +"\n";
+        if(!flag) {
+            bill += "Paperbag Added: " + paperBagPrice + "\n";
+        }
 
         bill+="Total Price: "+price+"\n";
 
