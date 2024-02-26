@@ -97,6 +97,6 @@ public class Pizza {
             billFlag=false;
         }
 
-        return this.bill;
+        return bill;
     }
 }
