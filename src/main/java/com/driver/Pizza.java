@@ -19,7 +19,7 @@ public class Pizza {
 
    public boolean t1=true;
    public boolean c1=true;
-   public boolean p1=false;
+
    public boolean b1=true;
 
 
@@ -96,9 +96,9 @@ public class Pizza {
             bill += "Extra Toppings Added: " + ToppingPrice + "\n";
             t1=false;
         }
-        if(p1) {
+        if(paperBagPrice!=0) {
             bill += "Paperbag Added: " + paperBagPrice + "\n";
-            p1=false;
+
         }
 
         if(b1) {
